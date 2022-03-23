@@ -1,3 +1,31 @@
-.cart-container {
-  background-color: rgba(255, 153, 0, 0.3);
+.cart {
+  position: sticky;
+  top: 0;
+}
+.order-summary {
+  text-align: center;
+}
+.clear-cart-btn {
+  background: rgba(255, 48, 48, 1);
+  color: white;
+  width: 232px;
+  height: 48px;
+  cursor: pointer;
+  margin: 16px 16px 0 16px;
+  border: none;
+  border-radius: 4px;
+}
+.review-order-btn {
+  border: none;
+  background: rgba(255, 153, 0, 1);
+  color: white;
+  width: 232px;
+  margin: 16px;
+  height: 48px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 16px;
+}
+.price-total {
+  margin: 50px 0 25px 23px;
 }

@@ -1,10 +1,35 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import "./Cart.css";
 const Cart = ({ cart }) => {
+  console.log(cart);
+  let total = 0;
+  let shipping = 0;
+
+  for (const product of cart) {
+    total = total + product.price;
+    shipping = shipping + product.shipping;
+    // tax=tax+product+
+  }
+  const tax = (total * 0.1).toFixed(3);
+  const grandTotal = parseFloat(total) + parseFloat(shipping) + parseFloat(tax);
   return (
-    <div>
-      <h4>Order Summary</h4>
-      <p>Selected Items: {cart.length}</p>
+    <div className="cart">
+      <h4 className="order-summary">Order Summary</h4>
+      <div className="price-total">
+        <p>Selected Items: {cart.length}</p>
+        <p>Total price:${total}</p>
+        <p>Total Shipping Charge:${shipping}</p>
+        <p>Tax:${tax}</p>
+        <h4>Grand Total:${grandTotal}</h4>
+      </div>
+      <button className="clear-cart-btn">
+        Clear Cart <FontAwesomeIcon icon={faTrashCan}></FontAwesomeIcon>
+      </button>
+      <button className="review-order-btn">
+        Review Order <FontAwesomeIcon icon={faArrowRight} />
+      </button>
     </div>
   );
 };
