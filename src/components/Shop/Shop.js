@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
+import React from "react";
+import useCart from "../../hooks/useCart";
 import useProducts from "../../hooks/useProducts";
-import { addToDb, getStoredCart } from "../../utilities/fakedb";
+// import { addToDb, getStoredCart } from "../../utilities/fakedb";
+import { addToDb } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
 
 const Shop = () => {
   const [products] = useProducts();
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useCart(products);
+  /* const [cart, setCart] = useState([]);
 
   useEffect(() => {
     const storedCart = getStoredCart();
@@ -22,7 +26,7 @@ const Shop = () => {
       }
       setCart(savedCart);
     }
-  }, [products]);
+  }, [products]); */
 
   const handleAddToCart = (selectedProduct) => {
     let newCart = [];
